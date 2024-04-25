@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Update customer</title>
+<link rel="stylesheet" th:href="@{/css/style.css}"
+	href="../static/css/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<style>
+body {
+	padding-top: 20px;
+	padding-bottom: 40px;
+}
+
+.form-control {
+	margin-bottom: 10px;
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 offset-lg-2">
+				<h2 class="text-center">Update Customer Information</h2>
+				<form th:action="@{/customer/update}" th:object="${customer}"
+					method="post">
+					
+					<input type="hidden" th:field="*{cusId}" th:value="${cusId}">
+					
+					<div class="form-group">
+						<label for="name">Name:</label> <input type="text" th:field="*{name}" id="name" name="name" class="form-control"
+							placeholder="Enter your name" required> <small
+							th:if="${#fields.hasErrors('name')}" class="text-danger"
+							th:errors="*{name}"></small>
+
+					</div>
+					
+					<div class="form-group">
+						<label for="age">Age:</label> <input type="number" id="age"
+							th:field="*{age}" class="form-control" /> <small
+							th:if="${#fields.hasErrors('age')}" class="text-danger"
+							th:errors="*{age}"></small>
+					</div>
+					<div class="form-group">
+						<label for="gender" class="form-label">Gender:</label><select
+   						class="form-control" id="gender" th:field="*{gender}">
+   						<option value="male">Male</option>
+   						<option value="female">Female</option>
+   						<option value="others">others</option></select>
+						<div th:if="${#fields.hasErrors('gender')}" class="text-danger"
+							th:errors="*{gender}"></div>
+
+
+					</div>
+					<div class="form-group">
+						<label for="address">Address:</label> <input type="text"
+							id="address" th:field="*{address}" class="form-control" /> <small
+							th:if="${#fields.hasErrors('address')}" class="text-danger"
+							th:errors="*{adderss}"></small>
+
+
+					</div>
+					<div class="form-group">
+						<label for="mobile">Mobile:</label> <input type="tel" id="mobile"			th:field="*{mobile}" class="form-control" /> <small
+							th:if="${#fields.hasErrors('mobile')}" class="text-danger"
+							th:errors="*{mobile}"></small>
+					</div>
+					<div class="form-group">
+						 <input type="hidden" id="email"
+							th:field="*{email}" class="form-control" /> <small
+							th:if="${#fields.hasErrors('email')}" class="text-danger"
+							th:errors="*{email}"></small>
+					</div>
+				<div class="form-group">
+						<label for="membershipplan">Plan:</label> <input type="text" id="gender"
+							th:field="*{membershipplan}" class="form-control" />
+					</div>
+					<button type="submit" class="btn btn-primary">Update</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- Add Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<footer class="footer mt-auto py-3 bg-light fixed-bottom">
+		<div class="container text-center">
+			<span class="text-muted">© 2024 Gym Management System</span>
+		</div>
+	</footer>
+
+</body>
+</html>

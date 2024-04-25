@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image:url("adminlogin.jpg");
+            background-size: cover; 
+        	background-repeat:no-repeat;
+        	background-position:center;
+        	background-attachment: fixed; 
+        }
+        .login-container {
+            width: 300px;
+            margin: auto;
+            margin-top: 10%;
+        }
+        .login-container h2 {
+            text-align: center;
+            color: #000000;
+            
+        }
+        .login-container form {
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px 0px #0000001a;
+        }
+        .login-container form input[type="submit"] {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+        .header {
+            position: fixed;
+            right: 0;
+            top: 0;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" th:href="@{/home}">Gym</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarNav" aria-controls="navbarNav"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" th:href="@{/home}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/admin}">Admin</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/customer/new}">Customer</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/feedbacks}">Feedback</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="login-container">
+        
+        <form th:action="@{/submit}" th:object="${customers}" method="post">
+            <div class="form-group">
+            <h2>Admin Login</h2>
+                <label for="username">Email:</label>
+                <input type="email" id="username" name="username" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" class="form-control" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$" minlength="8" required>
+            </div>
+            <input type="submit" value="Submit" class="btn btn-primary btn-block">
+        </form>
+    </div>
+    <footer class="fixed-bottom bg-dark text-white text-center p-0.5">
+         ©2024 Gym Management System
+    </footer>
+</body>
+</html>
+
+

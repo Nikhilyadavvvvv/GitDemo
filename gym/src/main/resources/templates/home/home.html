@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.com">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<title>Gym Management system</title>
+<style>
+body {
+ background-image: url('home.jpg');
+ background-size: cover;
+ background-repeat:no-repeat;
+ background-position:center center;
+ background-attachment: fixed; 
+ font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.btn-transparent-blurry {
+ background-color: White;
+ backdrop-filter: blur(10px);
+}
+.carousel-item {
+ height: 10%;
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
+}
+.hover-area-left, .hover-area-right {
+ position: relative;
+ width: 50%;
+ height: 60vh;
+ float: left;
+ cursor: pointer;
+}
+.hover-text {
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ color:red;
+ transform: translate(-50%, -50%);
+ visibility: hidden;
+ transition: visibility 0.1s, transform 0.1s;
+}
+.hover-text p {
+ opacity: 0;
+ transition: opacity 0.1s;
+ color:red;
+ margin: 0;
+ padding: 0;
+}
+.hover-area-left:hover .hover-text {
+ visibility: visible;
+ transform: translate(-50%, -50%) translateX(20px);
+}
+.hover-area-left:hover .hover-text p {
+ opacity: 1;
+ transition-delay: 0.1s;
+}
+.hover-area-right:hover .hover-text {
+ visibility: visible;
+ transform: translate(-50%, -50%) translateX(-20px);
+}
+.hover-area-right:hover .hover-text p {
+ opacity: 1;
+ transition-delay: 0.1s;
+}
+
+</style>
+</head>
+<body>
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" th:href="@{/home}">Gym Management</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" th:href="@{/home}">Home</a></li>
+            <li class="nav-item"><a class="nav-link" th:href="@{/admin}">Admin</a></li>
+            <li class="nav-item"><a class="nav-link" th:href="@{/customer/new}">Customer</a></li>
+            <li class="nav-item"><a class="nav-link" th:href="@{/feedbacks}">Feedback</a></li>
+        </ul>
+    </div>
+</nav>
+ <h2 class="text-center display-1 mt-0.5" style=color:#ff0000>Gym Management</h2><a th:href="@{/admin}">
+ <div class="hover-area-left">
+  <div class="hover-text"><h1>Admin</h1>
+  <p class="lead">Manage gym operations</p>
+  </div>
+ </div>
+ </a>
+ <a th:href="@{/customer/new}">
+ <div class="hover-area-right">
+  <div class="hover-text"><h1>Customer</h1>
+  <p class="lead">Registration of customers</p>
+  </div>
+ </div>
+ </a>
+ <footer class="fixed-bottom bg-dark text-white text-center p-0.5">
+ ©2024 Gym Management System
+ </footer>
+</body>
+</html>
+  
+  
+  
